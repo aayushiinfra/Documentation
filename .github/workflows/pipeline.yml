@@ -18,6 +18,7 @@ jobs:
             ls 
             pwd
             echo ${GITHUB_REPOSITORY}
+            rm -rf artifacts_repo
        - name: Render PlantUML to wiki
          uses: frederikheld/render-plantuml-to-wiki-action@v1.0.1
          with:
