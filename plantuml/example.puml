@@ -1,19 +1,7 @@
 @startuml
-abstract        abstract
-abstract class  "abstract class"
-annotation      annotation
-circle          circle
-()              circle_short_form
-class           class
-class           class_stereo  <<stereotype>>
-diamond         diamond
-<>              diamond_short_form
-entity          entity
-enum            enum
-exception       exception
-interface       interface
-metaclass       metaclass
-protocol        protocol
-stereotype      stereotype
-struct          struct
+Class11 <|.. Class12
+Class13 --> Class14
+Class15 ..> Class16
+Class17 ..|> Class18
+Class19 <--* Class20
 @enduml
