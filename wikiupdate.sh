@@ -4,11 +4,11 @@
 #set -e
 
 # Set paths inside Docker container:
-local_input_dir=$INPUT_INPUT_DIR
+local_input_dir=$"plantuml/"
 local_output_dir="output"
 
 artifacts_repo="https://${INPUT_WIKI_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
-artifacts_upload_dir=$INPUT_OUTPUT_DIR
+artifacts_upload_dir=$plantuml_images
 
 # Print debug info:
 # echo "DEBUG: all variables"
@@ -20,8 +20,8 @@ artifacts_upload_dir=$INPUT_OUTPUT_DIR
 # echo "> artifacts_upload_dir: $artifacts_upload_dir"
 # echo ""
 # echo "> INPUT_WIKI_TOKEN: $INPUT_WIKI_TOKEN"
-# echo "> INPUT_INPUT_DIR:  $INPUT_INPUT_DIR"
-# echo "> INPUT_OUTPUT_DIR: $INPUT_OUTPUT_DIR"
+# echo "> "plantuml/":  $"plantuml/""
+# echo "> plantuml_images: $plantuml_images"
 # echo ""
 # echo "> GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
 # echo "> GITHUB_WORKSPACE:  $GITHUB_WORKSPACE"
@@ -67,7 +67,7 @@ ls -l "${GITHUB_WORKSPACE}/${output_filepath}"
 echo "---"
 
 echo "=> Cleaning up possible left-overs from another render step ..."
-rm -r "${GITHUB_WORKSPACE}/artifacts_repo"
+rm -rf "${GITHUB_WORKSPACE}/artifacts_repo"
 
 echo "=> Cloning wiki repository ..."
 git clone $artifacts_repo "${GITHUB_WORKSPACE}/artifacts_repo"
