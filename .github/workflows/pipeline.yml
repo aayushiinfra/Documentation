@@ -22,4 +22,4 @@ jobs:
          with:
            WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
            INPUT_DIR: 'plantuml/'
-           OUTPUT_DIR: 'plantuml/'
+           OUTPUT_DIR: 'plantuml_images/'
