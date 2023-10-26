@@ -67,7 +67,7 @@ ls -l "${GITHUB_WORKSPACE}/${output_filepath}"
 echo "---"
 
 echo "=> Cleaning up possible left-overs from another render step ..."
-rm -rf "${GITHUB_WORKSPACE}/artifacts_repo"
+sudo rm -rf artifacts_repo/
 
 echo "=> Cloning wiki repository ..."
 git clone $artifacts_repo "${GITHUB_WORKSPACE}/artifacts_repo"
