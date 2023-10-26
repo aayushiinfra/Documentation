@@ -1,0 +1,25 @@
+run-name: Wiki-Updation
+on:
+  workflow-dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+ Action:
+    runs-on : ubuntu-latest
+    steps:
+       - name: Chechout Super Repo
+         uses: actions/checkout@v3
+       - run: |
+            ls 
+            pwd
+       - name: Render PlantUML to wiki
+         uses: frederikheld/render-plantuml-to-wiki-action@v1.0.1
+         with:
+           WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
+           INPUT_DIR: 'plantuml/'
+           OUTPUT_DIR: 'plantuml/'
