@@ -24,3 +24,10 @@ jobs:
            WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
            INPUT_DIR: plantuml/
            OUTPUT_DIR: plantuml_images/
+       - name: Checkout wiki code
+         uses: actions/checkout@v2
+         with:
+         repository: ${{github.repository}}.wiki
+       -run: |
+          cd Documentation.wiki
+          ls
