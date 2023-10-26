@@ -20,15 +20,15 @@ jobs:
             echo ${GITHUB_REPOSITORY}
             rm -rf artifacts_repo
        - name: Render PlantUML to wiki
-         uses: frederikheld/render-plantuml-to-wiki-action@v1.0.1
+         uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
          with:
            WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
            INPUT_DIR: plantuml/
            OUTPUT_DIR: plantuml_images/
-       - name: Checkout wiki code
-         uses: actions/checkout@v2
-         with:
-          repository: ${{github.repository}}.wiki
-       - run: |
-          cd Documentation.wiki
-          ls
+      #  - name: Checkout wiki code
+      #    uses: actions/checkout@v2
+      #    with:
+      #     repository: ${{github.repository}}.wiki
+      #  - run: |
+      #     cd Documentation.wiki
+      #     ls
