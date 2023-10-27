@@ -55,7 +55,7 @@ IFS='
 for file in $input_files
 do 
     fileName=$(basename $file)
-    echo "Dbugging -------- File name must be .puml"
+    echo "Debugging -------- File name must be .puml"
     echo $file
     input_filepath=$fileName
     output_filepath=$(dirname $(echo $file | sed -e "s@^${local_input_dir}@${local_output_dir}@"))
