@@ -3,12 +3,11 @@
 # Exit immediately if a command exits with a non-zero status:
 #set -e
 
-# Set paths inside Docker container:
-local_input_dir=$"plantuml/"
+local_input_dir="plantuml/"
 local_output_dir="output"
 
 artifacts_repo="https://${INPUT_WIKI_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
-artifacts_upload_dir=$plantuml_images
+artifacts_upload_dir="plantuml_images/"
 
 # Print debug info:
 # echo "DEBUG: all variables"
@@ -35,7 +34,7 @@ git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 # git config --global user.email "github-action@users.noreply.github.com"
 
 # Get paths to all files in input directory:
-input_files=$(find "$local_input_dir" -type f -name '*' -print)
+input_files=$(find "$local_input_dir" -type f -name '*.puml' -print)
 
 echo "=> Downloading PlantUML Java app ..."
 wget --quiet -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.1.2020.15.jar/download
@@ -78,8 +77,8 @@ if [ $? -gt 0 ]; then
 fi
 
 echo "=> Moving generated files to /${artifacts_upload_dir} in wiki repo ..."
-mkdir -p "${GITHUB_WORKSPACE}/artifacts_repo/${artifacts_upload_dir}"
-yes | cp --recursive --force "${GITHUB_WORKSPACE}/${local_output_dir}/." "${GITHUB_WORKSPACE}/artifacts_repo/${artifacts_upload_dir}"
+mkdir -p artifacts_repo/${artifacts_upload_dir}
+yes | cp --recursive --force ${local_output_dir} artifacts_repo/${artifacts_upload_dir}
 
 echo "=> Committing artifacts ..."
 cd "${GITHUB_WORKSPACE}/artifacts_repo"
