@@ -42,6 +42,9 @@ wget --quiet -O plantuml.jar https://sourceforge.net/projects/plantuml/files/pla
 echo "=> Preparing output dir ..."
 mkdir -p "$local_output_dir"
 
+echo "Debugging-------------------"
+ls
+
 echo "---"
 
 # Run PlantUML for each file path:
@@ -50,9 +53,12 @@ ORIGINAL_IFS="$IFS"
 IFS='
 '
 for file in $input_files
-do
+do 
+    echo "Dbugging -------- File name must be .puml"
+    echo $file
     input_filepath=$file
     output_filepath=$(dirname $(echo $file | sed -e "s@^${local_input_dir}@${local_output_dir}@"))
+    echo $output_filepath
 
     echo " > processing '$input_filepath'"
     java -jar plantuml.jar -charset UTF-8 -output "${GITHUB_WORKSPACE}/${output_filepath}" "${GITHUB_WORKSPACE}/${input_filepath}"
