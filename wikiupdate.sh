@@ -96,7 +96,7 @@ cd "${GITHUB_WORKSPACE}/artifacts_repo"
 
 git status
 git add .
-
+git status
 if git commit -m"Auto-generated PlantUML diagrams"; then
     echo "=> Pushing artifacts ..."
     git push
