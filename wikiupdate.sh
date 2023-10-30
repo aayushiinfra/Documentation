@@ -37,9 +37,9 @@ git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 input_files=$(find "$local_input_dir" -type f -name '*.puml' -print)
 
 echo "=> Downloading PlantUML Java app ..."
-apt-get install -y openjdk-8-jre
+sudo apt-get install -y openjdk-8-jre
 ver=$(java --version)
-echo $ver 
+echo $ver
 wget --quiet -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.1.2020.15.jar/download
 
 echo "=> Preparing output dir ..."
