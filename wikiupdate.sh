@@ -28,10 +28,10 @@ artifacts_upload_dir="plantuml_images/"
 # echo "---"
 
 # Set git user settings (this is needed to commit and push):
-git config --global user.name "${GITHUB_ACTOR}"
-git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-# git config --global user.name "GitHub Action 'Render PlantUML'"
-# git config --global user.email "github-action@users.noreply.github.com"
+#git config --global user.name "${GITHUB_ACTOR}"
+#git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+ git config --global user.name "GitHub Action 'Render PlantUML'"
+ git config --global user.email "github-action@users.noreply.github.com"
 
 # Get paths to all files in input directory:
 input_files=$(find "$local_input_dir" -type f -name '*.puml' -print)
@@ -85,7 +85,8 @@ if [ $? -gt 0 ]; then
     echo "   Note: you need to initialize the wiki by creating at least one page before you can use this action!"
     exit 1
 fi
-
+echo "DEbugging ----------"
+ls
 echo "=> Moving generated files to /${artifacts_upload_dir} in wiki repo ..."
 mkdir -p artifacts_repo/${artifacts_upload_dir}
 yes | cp --recursive --force ${local_output_dir} artifacts_repo/${artifacts_upload_dir}
@@ -93,7 +94,7 @@ yes | cp --recursive --force ${local_output_dir} artifacts_repo/${artifacts_uplo
 echo "=> Committing artifacts ..."
 cd "${GITHUB_WORKSPACE}/artifacts_repo"
 
-# git status
+git status
 git add .
 
 if git commit -m"Auto-generated PlantUML diagrams"; then
