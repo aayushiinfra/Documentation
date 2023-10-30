@@ -86,6 +86,8 @@ if [ $? -gt 0 ]; then
     exit 1
 fi
 echo "DEbugging ----------"
+pwd
+echo "files-------"
 ls
 echo "=> Moving generated files to /${artifacts_upload_dir} in wiki repo ..."
 mkdir -p artifacts_repo/${artifacts_upload_dir}

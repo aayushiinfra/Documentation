@@ -23,12 +23,12 @@ jobs:
           bash wikiupdate.sh
            
          shell: bash
-       - name: Render PlantUML to wiki
-         uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
-         with:
-           WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
-           INPUT_DIR: plantuml/
-           OUTPUT_DIR: plantuml_images/
+      #  - name: Render PlantUML to wiki
+      #    uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
+      #    with:
+      #      WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
+      #      INPUT_DIR: plantuml/
+      #      OUTPUT_DIR: plantuml_images/
       #  - name: Checkout wiki code
       #    uses: actions/checkout@v2
       #    with:
