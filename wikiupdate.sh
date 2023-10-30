@@ -4,7 +4,7 @@
 #set -e
 
 local_input_dir="plantuml/"
-local_output_dir="output"
+local_output_dir="output/"
 
 artifacts_repo="https://${INPUT_WIKI_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
 artifacts_upload_dir="plantuml_images/"
@@ -60,7 +60,7 @@ do
     fileName=$(basename $file)
     echo "Debugging -------- File name must be .puml"
     echo $fileName
-    input_filepath=$fileName
+    input_filepath=$file
     output_filepath=$(dirname $(echo $file | sed -e "s@^${local_input_dir}@${local_output_dir}@"))
     echo $output_filepath
 
