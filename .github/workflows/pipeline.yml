@@ -19,12 +19,13 @@ jobs:
             pwd
             echo ${GITHUB_REPOSITORY}
             rm -rf artifacts_repo
+       - name: Setup credentials to access private repositories
+         run: git config --global url.https://${{ secrets.WIKI_TOKEN }}@github.com/.insteadOf https://github.com/
        - run: |
           bash wikiupdate.sh
            
          shell: bash
-       - name: Setup credentials to access private repositories
-         run: git config --global url.https://${{ secrets.WIKI_TOKEN }}@github.com/.insteadOf https://github.com/
+
       #  - name: Render PlantUML to wiki
       #    uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
       #    with:
