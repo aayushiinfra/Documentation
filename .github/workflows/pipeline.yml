@@ -11,7 +11,8 @@ on:
 jobs:
  Action:
     runs-on : ubuntu-latest
-    env: ${{secrets.WIKI_TOKEN}}
+    env: 
+      WIKI: ${{secrets.WIKI_TOKEN}}
     steps:
        - name: Chechout Super Repo
          uses: actions/checkout@v3
@@ -21,9 +22,9 @@ jobs:
             echo ${GITHUB_REPOSITORY}
             rm -rf artifacts_repo
        - name: Setup credentials to access private repositories
-         run: git config --global url.https://${{ secrets.WIKI_TOKEN }}@github.com/.insteadOf https://github.com/
+         run: git config --global url.https://$WIKI@github.com/.insteadOf https://github.com/
        - run: |
-          export $WIKI_TOKEN
+          export $WIKI
           bash wikiupdate.sh      
          shell: bash
 
