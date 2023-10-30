@@ -38,6 +38,7 @@ input_files=$(find "$local_input_dir" -type f -name '*.puml' -print)
 
 echo "=> Downloading PlantUML Java app ..."
 sudo apt-get install -y openjdk-8-jre
+sudo apt-get install -y graphviz
 ver=$(java --version)
 echo $ver
 wget --quiet -O plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.1.2020.15.jar/download
