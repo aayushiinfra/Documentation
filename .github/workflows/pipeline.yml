@@ -27,8 +27,6 @@ jobs:
           export $WIKI
           bash wikiupdate.sh      
          shell: bash
-
-
       #  - name: Render PlantUML to wiki
       #    uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
       #    with:
