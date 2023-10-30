@@ -59,13 +59,13 @@ for file in $input_files
 do 
     fileName=$(basename $file)
     echo "Debugging -------- File name must be .puml"
-    echo $file
+    echo $fileName
     input_filepath=$fileName
     output_filepath=$(dirname $(echo $file | sed -e "s@^${local_input_dir}@${local_output_dir}@"))
     echo $output_filepath
 
     echo " > processing '$input_filepath'"
-    java -jar plantuml.jar -charset UTF-8 -output "${GITHUB_WORKSPACE}/${output_filepath}" "${GITHUB_WORKSPACE}/${input_filepath}"
+    java -jar plantuml.jar -charset UTF-8 -output "${GITHUB_WORKSPACE}/${output_filepath}" "${input_filepath}"
 done
 IFS="$ORIGINAL_IFS"
 # source: https://unix.stackexchange.com/questions/9496/looping-through-files-with-spaces-in-the-names
