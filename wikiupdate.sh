@@ -6,7 +6,7 @@
 local_input_dir="plantuml/"
 local_output_dir="output/"
 
-artifacts_repo="https://${INPUT_WIKI_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
+artifacts_repo="https://${WIKI_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git"
 artifacts_upload_dir="plantuml_images/"
 
 # Print debug info:

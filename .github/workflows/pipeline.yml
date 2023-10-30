@@ -11,6 +11,7 @@ on:
 jobs:
  Action:
     runs-on : ubuntu-latest
+    env: ${{secrets.WIKI_TOKEN}}
     steps:
        - name: Chechout Super Repo
          uses: actions/checkout@v3
@@ -22,10 +23,10 @@ jobs:
        - name: Setup credentials to access private repositories
          run: git config --global url.https://${{ secrets.WIKI_TOKEN }}@github.com/.insteadOf https://github.com/
        - run: |
-          bash wikiupdate.sh
-           
+          export $WIKI_TOKEN
+          bash wikiupdate.sh      
          shell: bash
-         env: ${{secrets.WIKI_TOKEN}}
+
 
       #  - name: Render PlantUML to wiki
       #    uses: frederikheld/render-plantuml-to-wiki-action@v1.0.2
